@@ -42,5 +42,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     sol, _ = main(n_max=args.n_max)
     print(f'Solution: {sol}')
+    if args.verbose:
+        print(_)
+        
 
 
