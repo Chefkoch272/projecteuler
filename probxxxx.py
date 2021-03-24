@@ -5,13 +5,16 @@ Problem xxxx
 
 import argparse
 
-def main(x):
-    return x
+def main(number, description):
+    if description:
+        print(__doc__)
+    return number
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    # parser.add_argument('-p', '--prime_number', type=int)
+    parser.add_argument('-n', '--number', type=int)
     # parser.add_argument('-v', '--verbose', action='store_true', default=False)
-    # args = parser.parse_args()
-    # sol = main(x=args.prime_number)
-    # print(f'Solution: {sol}')
+    parser.add_argument('-d','--description', action='store_true', default=False)
+    args = parser.parse_args()
+    sol = main(**vars(args))
+    print(f'Solution: {sol}')

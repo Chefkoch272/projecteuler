@@ -36,7 +36,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--prime_number', type=int)
     parser.add_argument('-v', '--verbose', action='store_true', default=False)
+    parser.add_argument('-d','--description', action='store_true', default=False)
     args = parser.parse_args()
+    if args.description:
+        print(__doc__)
     sol, _ = main(p=args.prime_number)
     print(f'Solution: {sol}')
     if args.verbose:
