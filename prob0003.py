@@ -16,13 +16,28 @@ def main(p):
     # Todo: Then increase d by 1.
 
     # Todo: How to check if divisor d is a prime number?
-    pass
-    return p
+    prime_factors = []
+    n = p
+    d = 2
+    while n > 1 and n >= d:
+        if is_divisible(n,d):
+            n = int(n/d)
+            prime_factors.append(d)
+        else:
+            d = d + 1
+        # print(f'd: {d} and n: {n}')
+    highest_prime_factors = max(prime_factors)
+    return highest_prime_factors, prime_factors
+
+def is_divisible(number, divisor):
+    return (number % divisor == 0)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--prime_number', type=int)
-    # parser.add_argument('-v', '--verbose', action='store_true', default=False)
+    parser.add_argument('-v', '--verbose', action='store_true', default=False)
     args = parser.parse_args()
-    sol = main(p=args.prime_number)
+    sol, _ = main(p=args.prime_number)
     print(f'Solution: {sol}')
+    if args.verbose:
+        print(_)
