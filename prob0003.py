@@ -12,10 +12,6 @@ What is the largest prime factor of the number 600851475143 ?
 import argparse
 
 def main(p):
-    # Todo: Repetively divide number n by divisor d until it is not divisible.
-    # Todo: Then increase d by 1.
-
-    # Todo: How to check if divisor d is a prime number?
     prime_factors = []
     n = p
     d = 2
