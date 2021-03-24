@@ -44,6 +44,8 @@ if __name__ == '__main__':
     print(f'Solution: {sol}')
     if args.verbose:
         print(_)
-        
+else:
+    sol, _ = main(n_max=4000000)
+    print(f'Solution: {sol}')
 
 

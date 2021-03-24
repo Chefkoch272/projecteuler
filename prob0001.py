@@ -43,3 +43,6 @@ if __name__ == "__main__":
     print(f'Solution: {sol}')
     if args.verbose:
         print(df)
+else:
+    sol, df = main(upper_limit=1000)
+    print(f'Solution: {sol}')
