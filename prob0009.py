@@ -1,15 +1,15 @@
 """
-Problem xxxx
+Problem 9
+
+Special Pythagorean triplet
 
 """
 
 import argparse
 
-def main(number, description, verbose):
+def main(number, description, verbose = False):
     if description:
         print(__doc__)
-    if verbose:
-        print('verbose mode')
     return number
 
 if __name__ == "__main__":
