@@ -1,3 +1,4 @@
+# noinspection PyPackageRequirements
 """
 Problem 1
 
@@ -35,17 +36,19 @@ def is_divisible(number, divisor):
     return (number % divisor == 0)
 
 if __name__ == "__main__":
+    upper_limit = 1000
+
     parser = argparse.ArgumentParser()
-    parser.add_argument('-u','--upper_limit', type=int, required=True)
+    parser.add_argument('-u','--upper_limit', type=int, default=upper_limit)
     parser.add_argument('-v','--verbose', action='store_true', default=False)
     parser.add_argument('-d','--description', action='store_true', default=False)
     args = parser.parse_args()
+
     if args.description:
         print(__doc__)
+
     sol, df = main(upper_limit=args.upper_limit)
     print(f'Solution: {sol}')
+
     if args.verbose:
         print(df)
-else:
-    sol, df = main(upper_limit=1000)
-    print(f'Solution: {sol}')
