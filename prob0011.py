@@ -47,12 +47,24 @@ a = np.array([
     [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67,
      48]
 ])
-#print(a)
-# To Do: Modify base matrix, so that it is surrounded by 5 rows resp. columns of ones.
 
-# Shift matrix values horizontally to the right hand-side by one position.
-a_horizontal_right = np.delete(np.roll(a, 1, axis=-1), 0, 1)
-# Make empty values ones. To Do: Delete when surrounding of ones is introduced.
-a_horizontal_right = np.concatenate((np.ones((20,1), dtype=int), a_horizontal_right), axis=1)
-# To do: Execute above process in total 5 times.
-print(a_horizontal_right)
+size = a.shape[0]
+n = 4
+
+a_h = np.ones([size-n+1,size])
+for i in range(n):
+    a_h = a_h * a[i:size-n+i+1,:]
+
+a_v = np.ones([size,size-n+1])
+for i in range(n):
+    a_v = a_v * a[:,i:size-n+i+1]
+
+a_d1 = np.ones([size-n+1,size-n+1])
+for i in range(n):
+    a_d1 = a_d1 * a[i:size-n+i+1,i:size-n+i+1]
+
+a_d2 = np.ones([size-n+1,size-n+1])
+for i in range(n):
+    a_d2 = a_d2 * a[n-1-i:size-i,i:size-n+1+i]
+
+print(max(a_h.max(), a_v.max(), a_d1.max(), a_d2.max()))

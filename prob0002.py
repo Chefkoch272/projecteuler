@@ -25,6 +25,7 @@ def fib(n_max):
     m = 1
     n = 1
     fib_list = []
+
     while n <= n_max:
         fib_list.append(n)
         _ = n
@@ -37,7 +38,7 @@ def is_divisible(number, divisor):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-n','--n_max', type=int)
+    parser.add_argument('-n','--n_max', type=int, default=4000000)
     parser.add_argument('-v','--verbose', action='store_true', default=False)
     parser.add_argument('-d','--description', action='store_true', default=False)
     args = parser.parse_args()
@@ -47,8 +48,5 @@ if __name__ == '__main__':
     print(f'Solution: {sol}')
     if args.verbose:
         print(_)
-else:
-    sol, _ = main(n_max=4000000)
-    print(f'Solution: {sol}')
 
 
