@@ -1,16 +1,6 @@
-"""
-Problem 7
-
-10001st prime
-
-"""
-
-import argparse
 import help_functions
 
-def main(number, description):
-    if description:
-        print(__doc__)
+def main(number):
     n=2
     primes=[2]
     length = len(primes)
@@ -27,10 +17,5 @@ def main(number, description):
     return primes
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-n', '--number', type=int)
-    # parser.add_argument('-v', '--verbose', action='store_true', default=False)
-    parser.add_argument('-d','--description', action='store_true', default=False)
-    args = parser.parse_args()
-    sol = main(**vars(args))
+    sol = main(10001)
     print(f'Solution: {sol[-1]}')

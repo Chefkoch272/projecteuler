@@ -1,16 +1,4 @@
-"""
-Problem 9
-
-Special Pythagorean triplet
-
-"""
-
-import argparse
-
-def main(number, description, verbose = False):
-    if description:
-        print(__doc__)
-
+def main(number, verbose=False):
     solution = []
 
     for c in range(number+1):
@@ -26,10 +14,5 @@ def main(number, description, verbose = False):
     return solution
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-n', '--number', type=int)
-    parser.add_argument('-v', '--verbose', action='store_true', default=False)
-    parser.add_argument('-d','--description', action='store_true', default=False)
-    args = parser.parse_args()
-    sol = main(**vars(args))
+    sol = main(1000)
     print(f'Solution: {sol}')
